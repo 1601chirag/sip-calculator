@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SIP Calculator | Calculate SIP Returns Online</title>
+  <meta name="description" content="Free SIP calculator to calculate returns on monthly SIP investments. Useful for mutual fund SIP planning for beginners in India.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+  <h1>SIP Calculator</h1>
+
+  <p>
+    This SIP calculator helps you calculate the future value of your monthly SIP investments.
+    It is useful for planning mutual fund investments and understanding long-term wealth creation.
+  </p>
+
+  <p>
+    SIP stands for Systematic Investment Plan. It allows you to invest a fixed amount regularly,
+    usually every month, instead of investing a lump sum.
+  </p>
+
+  <hr>
+
+  <!-- Calculator Section -->
+  <h2>Calculate SIP Returns</h2>
+
+  <label>Monthly Investment Amount (₹)</label><br>
+  <input type="number" id="m" placeholder="Enter monthly investment"><br><br>
+
+  <label>Expected Annual Return (%)</label><br>
+  <input type="number" id="r" placeholder="Enter expected return rate"><br><br>
+
+  <label>Investment Duration (Years)</label><br>
+  <input type="number" id="t" placeholder="Enter investment duration"><br><br>
+
+  <button onclick="calcSIP()">Calculate SIP</button>
+
+  <p id="result"></p>
+
+  <hr>
+
+  <h2>How SIP Returns are Calculated</h2>
+
+  <p>
+    SIP returns are calculated using the compound interest principle, where investments grow over time.
+  </p>
+
+  <p>
+    <strong>
+      SIP Value = M × [((1 + R)<sup>N</sup> − 1) / R] × (1 + R)
+    </strong>
+  </p>
+
+  <p>
+    Where:
+  </p>
+
+  <ul>
+    <li><strong>M</strong> = Monthly investment amount</li>
+    <li><strong>R</strong> = Monthly rate of return</li>
+    <li><strong>N</strong> = Total number of months</li>
+  </ul>
+
+  <h2>Example of SIP Calculation</h2>
+
+  <p>
+    If you invest ₹5,000 per month for 10 years at an expected annual return of 12%,
+    the total investment value will be approximately ₹11.6 lakh.
+  </p>
+
+  <h2>Who Should Use This SIP Calculator</h2>
+
+  <ul>
+    <li>Beginners investing in mutual funds</li>
+    <li>People planning long-term investments</li>
+    <li>Students learning investment basics</li>
+  </ul>
+
+  <!-- Calculator Logic -->
+  <script>
+    function calcSIP() {
+      var m = document.getElementById("m").value;
+      var r = document.getElementById("r").value / 12 / 100;
+      var n = document.getElementById("t").value * 12;
+
+      var amount = m * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
+
+      document.getElementById("result").innerHTML =
+        "Total Investment Value = ₹" + amount.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
